@@ -123,7 +123,13 @@ function uniquifyArray(array) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(haystack, needle) {
+  if (!haystack.length) {
+    return null;
+  }
+
+  return haystack.includes(needle);
+}
 
 
 
