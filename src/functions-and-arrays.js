@@ -39,7 +39,25 @@ function sumNumbers(numberArray) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let numberArray = array.map(element => {
+    switch (typeof element) {
+      case "string":
+        return element.length;
+
+      case "object":
+        throw new Error("Unsupported data type sir or ma'am");
+      
+      default:
+        let number = Number(element);
+        if (number === NaN) {
+          throw new Error("Unsupported data type sir or ma'am");
+        }
+        return number;
+    }
+  });
+  return sumNumbers(numberArray);
+}
 
 
 
