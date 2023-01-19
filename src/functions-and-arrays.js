@@ -192,12 +192,14 @@ function greatestProduct(matrix) {
     for (let j = 0; j < matrix[i].length; j++) {
       if (i + 3 < matrix.length) {
         const verticalProduct = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+
         if (verticalProduct > greatestProduct) {
           greatestProduct = verticalProduct;
         }
       }
       if (j + 3 < matrix[i].length) {
         const horizontalProduct = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        
         if (horizontalProduct > greatestProduct) {
           greatestProduct = horizontalProduct;
         }
@@ -208,8 +210,33 @@ function greatestProduct(matrix) {
   return greatestProduct;
 }
 
+function greatestProductOfDiagonals(matrix) {
+  let greatestProduct = 0;
 
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
 
+      if (j + 3 < matrix[i].length) {
+        if (i + 3 < matrix.length) {
+          let bottomRightProduct = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+
+          if (bottomRightProduct > greatestProduct) {
+            greatestProduct = bottomRightProduct;
+          }
+        }
+        if (i - 3 >= 0) {
+          const bottomLeftProduct = matrix[i][j] * matrix[i-1][j+1] * matrix[i-2][j+2] * matrix[i-3][j+3];
+  
+          if (bottomLeftProduct > greatestProduct) {
+            greatestProduct = bottomLeftProduct;
+          }
+        }
+      }
+    }
+  }
+
+  return greatestProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
