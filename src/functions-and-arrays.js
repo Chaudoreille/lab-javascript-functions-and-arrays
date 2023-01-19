@@ -65,16 +65,29 @@ function sum(array) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numberArray) {
+  if (!numberArray.length) {
+    return null;
+  } 
+
+  return sumNumbers(numberArray) / numberArray.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordArray) {
+  if (!wordArray.length) {
+    return null;
+  }
+  return sum(wordArray) / wordArray.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  return averageWordLength(array);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -91,7 +104,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (!array.length) {
+    return null;
+  }
+  const uniquified = [];
+
+  for (item of array) {
+    if (!uniquified.includes(item)) {
+      uniquified.push(item);
+    }
+  }
+  return uniquified;
+}
 
 
 
