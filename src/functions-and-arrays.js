@@ -148,7 +148,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(haystack, needle) {
+  let iterations = 0;
+  
+  for (item of haystack) {
+    if (item === needle) {
+      iterations++;
+    }
+  }
+  return iterations;
+}
 
 
 
